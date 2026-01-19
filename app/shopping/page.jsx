@@ -13,7 +13,9 @@ const ShoppingList = () => {
   const router = useRouter();
 
   const fetchData = () => {
-    fetch("/api/tracker/shopping")
+    fetch("/api/tracker/shopping", {
+      credentials: "include",
+    })
       .then((res) => {
         return res.json();
       })

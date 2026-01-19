@@ -25,7 +25,9 @@ export default function Home() {
   const router = useRouter();
 
   const fetchData = () => {
-    fetch("/api/tracker/grocery")
+    fetch("/api/tracker/grocery", {
+      credentials: "include",
+    })
       .then((res) => {
         // console.log(res.json());
 

@@ -8,7 +8,9 @@ const Kitchen = () => {
   const [mealItems, setMealItems] = useState([]);
 
   const fetchData = () => {
-    fetch("/api/tracker/kitchen")
+    fetch("/api/tracker/kitchen", {
+      credentials: "include",
+    })
       .then((res) => {
         return res.json();
       })
