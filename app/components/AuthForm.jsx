@@ -31,6 +31,12 @@ const AuthForm = ({ mode }) => {
     });
   };
 
+  const demoLogin = async () => {
+    setUsername("Demo");
+    setEmail("demo@demo.com");
+    setPassword("demo");
+  };
+
   return (
     <>
       <h2>Auth Form</h2>
@@ -47,6 +53,7 @@ const AuthForm = ({ mode }) => {
             type="text"
             name="username"
             id="username"
+            value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="m-2 bg-white"
           />
@@ -57,6 +64,7 @@ const AuthForm = ({ mode }) => {
             type="email"
             name="email"
             id="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="m-2 bg-white"
           />
@@ -67,6 +75,7 @@ const AuthForm = ({ mode }) => {
             type="password"
             name="password"
             id="password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="m-2 bg-white"
           />
@@ -81,6 +90,16 @@ const AuthForm = ({ mode }) => {
           {mode === "login" ? "Register" : "Log In"}
         </Link>
       </p>
+      {mode === "login" ? (
+        <>
+          <p>Or try it out.</p>
+          <Button click={demoLogin} border>
+            Demo Login
+          </Button>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };
