@@ -10,7 +10,7 @@ connectDB();
 export async function GET() {
   // get cookies from browser
   const cookieStore = await cookies();
-  const token = cookieStore.get("jwt")?.value;
+  const token = cookieStore.get("jwt-grocery-tracker")?.value;
   if (!token) {
     return NextResponse.json(null);
   }

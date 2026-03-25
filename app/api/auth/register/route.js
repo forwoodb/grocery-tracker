@@ -23,7 +23,7 @@ export async function POST(req) {
   // create response
   const res = NextResponse.json({ msg: "hi" });
   // create cookie
-  res.cookies.set("jwt", token, {
+  res.cookies.set("jwt-grocery-tracker", token, {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24 * 3,
   });

@@ -20,7 +20,7 @@ export async function POST(req) {
   }
   const res = NextResponse.json({ msg: "login" });
 
-  res.cookies.set("jwt", token, {
+  res.cookies.set("jwt-grocery-tracker", token, {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24 * 3,
   });
