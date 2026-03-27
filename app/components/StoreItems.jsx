@@ -8,6 +8,7 @@ export default function StoreItems({
   groceryItems,
   userName,
   createGroceryItem,
+  deleteItem,
 }) {
   // const [groceryItems, setGroceryItems] = useState([]);
   const [groceryItem, setGroceryItem] = useState({
@@ -95,16 +96,16 @@ export default function StoreItems({
     setUpdateItem(item._id);
   };
 
-  const deleteItem = (id) => {
-    fetch(`/api/tracker/grocery/${id}`);
+  // const deleteItem = (id) => {
+  //   fetch(`/api/tracker/grocery/${id}`);
 
-    const list = groceryItems.filter((item) => {
-      if (item._id !== id) {
-        return item;
-      }
-    });
-    setGroceryItems(list);
-  };
+  //   const list = groceryItems.filter((item) => {
+  //     if (item._id !== id) {
+  //       return item;
+  //     }
+  //   });
+  //   setGroceryItems(list);
+  // };
 
   const handleLogout = () => {
     fetch("/api/auth/logout");

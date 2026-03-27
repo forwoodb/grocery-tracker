@@ -1,11 +1,11 @@
 import GroceryItem from "@/app/models/GroceryItem";
 import { NextResponse } from "next/server";
 
-export async function GET(req, { params }) {
-  const { id } = await params;
-  await GroceryItem.findByIdAndDelete(id);
-  return NextResponse.json({ msg: "delete" });
-}
+// export async function GET(req, { params }) {
+//   const { id } = await params;
+//   await GroceryItem.findByIdAndDelete(id);
+//   return NextResponse.json({ msg: "delete" });
+// }
 
 export async function POST(req, { params }) {
   const { id } = await params;

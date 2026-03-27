@@ -25,6 +25,14 @@ const Home = async () => {
     revalidatePath("/");
   };
 
+  const deleteItem = async (id) => {
+    "use server";
+
+    await GroceryItem.findByIdAndDelete(id);
+
+    revalidatePath("/");
+  };
+
   return (
     <>
       {/* <StoreItems /> */}
@@ -32,6 +40,7 @@ const Home = async () => {
         groceryItems={groceryItems}
         userName={userName}
         createGroceryItem={createGroceryItem}
+        deleteItem={deleteItem}
       />
     </>
   );
