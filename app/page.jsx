@@ -10,7 +10,6 @@ const Home = async () => {
 
   const user = await User.findById(userId).lean();
   const userName = user.username;
-  // console.log(userName);
 
   const data = await GroceryItem.find().lean();
   const groceryItems = JSON.parse(JSON.stringify(data));
@@ -35,7 +34,6 @@ const Home = async () => {
 
   return (
     <>
-      {/* <StoreItems /> */}
       <StoreItems
         groceryItems={groceryItems}
         userName={userName}

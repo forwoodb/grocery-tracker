@@ -42,7 +42,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   name="price"
                   id="price"
                   defaultValue={item.price}
-                  // onChange={change}
                   className="
                     input 
                     input-warning 
@@ -54,7 +53,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   name="priceType"
                   id="priceType"
                   defaultValue={item.priceType}
-                  // onChange={change}
                 >
                   <option value="">type</option>
                   <option value="regular">regular</option>
@@ -72,7 +70,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
                 name="brand"
                 id="brand"
                 defaultValue={item.brand}
-                // onChange={change}
                 className="input input-warning w-full"
               />
             </div>
@@ -96,7 +93,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   name="size"
                   id="size"
                   defaultValue={item.size}
-                  // onChange={change}
                   className="input input-warning w-full"
                 />
                 <select
@@ -104,7 +100,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   name="units"
                   id="units"
                   defaultValue={item.units}
-                  // onChange={change}
                 >
                   <option value="units">units</option>
                   <option value="servings">servings</option>
@@ -126,7 +121,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
                 name="location"
                 id="location"
                 defaultValue={item.location}
-                // onChange={change}
                 className="input input-warning w-full"
               />
             </div>

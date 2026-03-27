@@ -10,7 +10,6 @@ export default function StoreItems({
   createGroceryItem,
   deleteItem,
 }) {
-  // const [groceryItems, setGroceryItems] = useState([]);
   const [groceryItem, setGroceryItem] = useState({
     itemName: "",
     price: "",
@@ -21,34 +20,10 @@ export default function StoreItems({
     location: "",
     inList: false,
   });
-  // const [userName, setUserName] = useState("");
   const [editItem, setEditItem] = useState(false);
   const [updateItem, setUpdateItem] = useState("");
-  // const [isChecked, setIsChecked] = useState(false);
-  // const [listItems, setListItems] = useState([]);
 
   const router = useRouter();
-
-  // const fetchData = () => {
-  //   fetch("/api/tracker/grocery", {
-  //     credentials: "include",
-  //   })
-  //     .then((res) => {
-  //       if (res.status === 500) {
-  //         router.push("/login");
-  //         return;
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setGroceryItems(data.items);
-  //       setUserName(data.username);
-  //     });
-  // };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,52 +35,11 @@ export default function StoreItems({
     });
   };
 
-  // const handleSubmit = (e, id) => {
-  //   e.preventDefault();
-
-  //   const url = editItem
-  //     ? `/api/tracker/grocery/${updateItem}`
-  //     : "/api/tracker/grocery";
-
-  //   fetch(url, {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(groceryItem),
-  //   }).then(() => {
-  //     return fetchData();
-  //   });
-
-  //   setGroceryItem({
-  //     itemName: "",
-  //     price: "",
-  //     priceType: "",
-  //     brand: "",
-  //     size: "",
-  //     units: "",
-  //     location: "",
-  //   });
-  //   setEditItem(false);
-  // };
-
   const editItemID = (item) => {
-    // console.log(item);
     setEditItem(true);
     setGroceryItem(item);
     setUpdateItem(item._id);
   };
-
-  // const deleteItem = (id) => {
-  //   fetch(`/api/tracker/grocery/${id}`);
-
-  //   const list = groceryItems.filter((item) => {
-  //     if (item._id !== id) {
-  //       return item;
-  //     }
-  //   });
-  //   setGroceryItems(list);
-  // };
 
   const handleLogout = () => {
     fetch("/api/auth/logout");
@@ -125,7 +59,6 @@ export default function StoreItems({
   const addToList = () => {
     let groceryList = groceryItems.filter((item) => {
       if (item.inList === true) {
-        // console.log(item._id);
         return item;
       }
     });
