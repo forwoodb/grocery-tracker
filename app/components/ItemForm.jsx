@@ -26,8 +26,8 @@ const ItemForm = ({ edit, item, change, submit }) => {
                 type="text"
                 name="itemName"
                 id="itemName"
-                value={item.itemName}
-                onChange={change}
+                defaultValue={item.itemName}
+                // onChange={change}
                 className="input input-warning w-full"
               />
             </div>
@@ -41,8 +41,8 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   type="text"
                   name="price"
                   id="price"
-                  value={item.price}
-                  onChange={change}
+                  defaultValue={item.price}
+                  // onChange={change}
                   className="
                     input 
                     input-warning 
@@ -53,8 +53,8 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   className="select select-warning w-28"
                   name="priceType"
                   id="priceType"
-                  value={item.priceType}
-                  onChange={change}
+                  defaultValue={item.priceType}
+                  // onChange={change}
                 >
                   <option value="">type</option>
                   <option value="regular">regular</option>
@@ -71,8 +71,8 @@ const ItemForm = ({ edit, item, change, submit }) => {
                 type="text"
                 name="brand"
                 id="brand"
-                value={item.brand}
-                onChange={change}
+                defaultValue={item.brand}
+                // onChange={change}
                 className="input input-warning w-full"
               />
             </div>
@@ -95,16 +95,16 @@ const ItemForm = ({ edit, item, change, submit }) => {
                   type="text"
                   name="size"
                   id="size"
-                  value={item.size}
-                  onChange={change}
+                  defaultValue={item.size}
+                  // onChange={change}
                   className="input input-warning w-full"
                 />
                 <select
                   className="select select-warning w-28"
                   name="units"
                   id="units"
-                  value={item.units}
-                  onChange={change}
+                  defaultValue={item.units}
+                  // onChange={change}
                 >
                   <option value="units">units</option>
                   <option value="servings">servings</option>
@@ -125,8 +125,8 @@ const ItemForm = ({ edit, item, change, submit }) => {
                 type="text"
                 name="location"
                 id="location"
-                value={item.location}
-                onChange={change}
+                defaultValue={item.location}
+                // onChange={change}
                 className="input input-warning w-full"
               />
             </div>

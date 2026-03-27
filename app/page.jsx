@@ -19,7 +19,7 @@ const Home = async () => {
     "use server";
 
     const data = Object.fromEntries(formData);
-    const userId = await getUserId();
+
     const newItem = await new GroceryItem({ ...data, userId });
     await newItem.save();
     revalidatePath("/");
