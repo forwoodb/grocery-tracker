@@ -7,21 +7,21 @@ import User from "@/app/models/User";
 
 connectDB();
 
-// export async function GET() {
-//   const cookieStore = await cookies();
-//   const cookie = cookieStore.get("jwt-grocery-tracker");
+export async function GET() {
+  const cookieStore = await cookies();
+  const cookie = cookieStore.get("jwt-grocery-tracker");
 
-//   let token = null;
-//   if (cookie.value) {
-//     token = cookie.value;
-//   }
-//   const verify = jwt.verify(token, process.env.JWT_SECRET);
-//   const items = await GroceryItem.find({ inList: true, userId: verify._id });
-//   // const user = await User.findOne({ _id: verify._id });
-//   // console.log(user);
+  let token = null;
+  if (cookie.value) {
+    token = cookie.value;
+  }
+  const verify = jwt.verify(token, process.env.JWT_SECRET);
+  const items = await GroceryItem.find({ inList: true, userId: verify._id });
+  // const user = await User.findOne({ _id: verify._id });
+  // console.log(user);
 
-//   return NextResponse.json(items);
-// }
+  return NextResponse.json(items);
+}
 
 export async function PUT(req) {
   const list = await req.json();

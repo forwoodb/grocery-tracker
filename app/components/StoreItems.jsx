@@ -4,7 +4,11 @@ import ItemForm from "./ItemForm";
 import { useRouter } from "next/navigation";
 import Button from "./Button";
 
-export default function StoreItems({ groceryItems, userName }) {
+export default function StoreItems({
+  groceryItems,
+  userName,
+  createGroceryItem,
+}) {
   // const [groceryItems, setGroceryItems] = useState([]);
   const [groceryItem, setGroceryItem] = useState({
     itemName: "",
@@ -55,37 +59,37 @@ export default function StoreItems({ groceryItems, userName }) {
     });
   };
 
-  const handleSubmit = (e, id) => {
-    e.preventDefault();
+  // const handleSubmit = (e, id) => {
+  //   e.preventDefault();
 
-    const url = editItem
-      ? `/api/tracker/grocery/${updateItem}`
-      : "/api/tracker/grocery";
+  //   const url = editItem
+  //     ? `/api/tracker/grocery/${updateItem}`
+  //     : "/api/tracker/grocery";
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(groceryItem),
-    }).then(() => {
-      return fetchData();
-    });
+  //   fetch(url, {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(groceryItem),
+  //   }).then(() => {
+  //     return fetchData();
+  //   });
 
-    setGroceryItem({
-      itemName: "",
-      price: "",
-      priceType: "",
-      brand: "",
-      size: "",
-      units: "",
-      location: "",
-    });
-    setEditItem(false);
-  };
+  //   setGroceryItem({
+  //     itemName: "",
+  //     price: "",
+  //     priceType: "",
+  //     brand: "",
+  //     size: "",
+  //     units: "",
+  //     location: "",
+  //   });
+  //   setEditItem(false);
+  // };
 
   const editItemID = (item) => {
-    console.log(item);
+    // console.log(item);
     setEditItem(true);
     setGroceryItem(item);
     setUpdateItem(item._id);
@@ -120,7 +124,7 @@ export default function StoreItems({ groceryItems, userName }) {
   const addToList = () => {
     let groceryList = groceryItems.filter((item) => {
       if (item.inList === true) {
-        console.log(item._id);
+        // console.log(item._id);
         return item;
       }
     });
@@ -148,7 +152,7 @@ export default function StoreItems({ groceryItems, userName }) {
           edit={editItem}
           item={groceryItem}
           change={handleChange}
-          submit={handleSubmit}
+          submit={createGroceryItem}
         />
         <div className="bg-base-100 rounded-xl shadow-md p-6">
           <Button click={addToList} className="btn btn-warning">

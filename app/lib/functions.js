@@ -14,6 +14,6 @@ export const getUserId = async () => {
   const verify = jwt.verify(token, process.env.JWT_SECRET);
   const userId = verify._id;
 
-  console.log(userId);
+  // console.log(userId);
   return userId;
 };

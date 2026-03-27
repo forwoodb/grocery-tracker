@@ -8,7 +8,7 @@ const ItemForm = ({ edit, item, change, submit }) => {
         <h2 className="text-3xl  font-semibold mb-6 text-center">
           {edit ? "Edit Item" : "Store Items"}
         </h2>
-        <Form onSubmit={submit} className="space-y-6">
+        <Form action={submit} className="space-y-6">
           {/* Row 1 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div
@@ -22,6 +22,7 @@ const ItemForm = ({ edit, item, change, submit }) => {
                 Name
               </label>
               <input
+                required
                 type="text"
                 name="itemName"
                 id="itemName"
@@ -36,6 +37,7 @@ const ItemForm = ({ edit, item, change, submit }) => {
               </label>
               <div className="flex">
                 <input
+                  required
                   type="text"
                   name="price"
                   id="price"
