@@ -10,8 +10,20 @@ export const getUserId = async () => {
     redirect("/login");
   }
 
-  const token = cookie.value;
-  const verify = jwt.verify(token, process.env.JWT_SECRET);
+  let token;
+
+  if (cookie.value) {
+    token = cookie.value;
+  }
+
+  let verify;
+
+  try {
+    verify = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    redirect("/login");
+  }
+
   const userId = verify._id;
 
   // console.log(userId);
