@@ -1,42 +1,14 @@
 import { revalidatePath } from "next/cache";
 import StoreItems from "./components/StoreItems";
+import { getUserId } from "./lib/functions";
 import GroceryItem from "./models/GroceryItem";
 import User from "./models/User";
-import { cookies } from "next/headers";
-import jwt from "jsonwebtoken";
-import { redirect } from "next/navigation";
 import { connectDB } from "./lib/db";
 
 const Home = async () => {
   connectDB();
-
-  const cookieStore = await cookies();
-  const cookie = cookieStore.get("jwt-grocery-tracker");
-
-  if (!cookie) {
-    redirect("/login");
-  }
-
-  let token;
-
-  if (cookie.value) {
-    token = cookie.value;
-  } else {
-    redirect("/login");
-  }
-
-  let verify;
-
-  try {
-    verify = jwt.verify(token, process.env.JWT_SECRET);
-  } catch (error) {
-    redirect("/login");
-  }
-
-  const userId = verify._id;
   // await getUserId();
-  // const userId = await getUserId();
-  console.log(userId);
+  const userId = await getUserId();
 
   const user = await User.findById(userId).lean();
   const userName = user.username;
