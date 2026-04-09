@@ -1,8 +1,10 @@
 import { revalidatePath } from "next/cache";
 import StoreItems from "./components/StoreItems";
-// import { getUserId } from "./lib/functions";
 import GroceryItem from "./models/GroceryItem";
 import User from "./models/User";
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
+import { redirect } from "next/navigation";
 
 const Home = async () => {
   const cookieStore = await cookies();
