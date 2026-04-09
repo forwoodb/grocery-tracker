@@ -5,11 +5,13 @@ import User from "./models/User";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 import { redirect } from "next/navigation";
+import { connectDB } from "./lib/db";
 
 const Home = async () => {
+  connectDB();
+
   const cookieStore = await cookies();
   const cookie = cookieStore.get("jwt-grocery-tracker");
-  // console.log(cookie);
 
   if (!cookie) {
     redirect("/login");
