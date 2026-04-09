@@ -14,6 +14,8 @@ export const getUserId = async () => {
 
   if (cookie.value) {
     token = cookie.value;
+  } else {
+    redirect("/login");
   }
 
   let verify;

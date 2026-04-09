@@ -5,7 +5,7 @@ import GroceryItem from "./models/GroceryItem";
 import User from "./models/User";
 
 const Home = async () => {
-  await getUserId();
+  // await getUserId();
   const userId = await getUserId();
 
   const user = await User.findById(userId).lean();
