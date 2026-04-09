@@ -1,33 +1,34 @@
-import { redirect } from "next/navigation";
-import { cookies } from "next/headers";
-import jwt from "jsonwebtoken";
+// import { redirect } from "next/navigation";
+// import { cookies } from "next/headers";
+// import jwt from "jsonwebtoken";
 
-export const getUserId = async () => {
-  const cookieStore = await cookies();
-  const cookie = cookieStore.get("jwt-grocery-tracker");
+// export const getUserId = async () => {
+//   const cookieStore = await cookies();
+//   const cookie = cookieStore.get("jwt-grocery-tracker");
+//   // console.log(cookie);
 
-  if (!cookie) {
-    redirect("/login");
-  }
+//   if (!cookie) {
+//     redirect("/login");
+//   }
 
-  let token;
+//   let token;
 
-  if (cookie.value) {
-    token = cookie.value;
-  } else {
-    redirect("/login");
-  }
+//   if (cookie.value) {
+//     token = cookie.value;
+//   } else {
+//     redirect("/login");
+//   }
 
-  let verify;
+//   let verify;
 
-  try {
-    verify = jwt.verify(token, process.env.JWT_SECRET);
-  } catch (error) {
-    redirect("/login");
-  }
+//   try {
+//     verify = jwt.verify(token, process.env.JWT_SECRET);
+//   } catch (error) {
+//     redirect("/login");
+//   }
 
-  const userId = verify._id;
+//   const userId = verify._id;
 
-  // console.log(userId);
-  return userId;
-};
+//   // console.log(userId);
+//   return userId;
+// };
