@@ -37,7 +37,6 @@ const ItemForm = ({ edit, item, change, submit }) => {
               </label>
               <div className="flex">
                 <input
-                  required
                   type="text"
                   name="price"
                   id="price"

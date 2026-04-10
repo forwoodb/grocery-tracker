@@ -93,6 +93,7 @@ export default function StoreItems({
             Add Checked Items to List
           </Button>
           <table className="table table-sm table-pin-rows">
+            {/* <table> */}
             <thead>
               <tr>
                 <th></th>
