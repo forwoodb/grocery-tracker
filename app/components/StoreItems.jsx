@@ -108,35 +108,39 @@ export default function StoreItems({
               </tr>
             </thead>
             <tbody>
-              {groceryItems.map((item) => {
-                return (
-                  <tr key={item._id}>
-                    <td>
-                      <input
-                        type="checkbox"
-                        onChange={() => handleCheckbox(item._id)}
-                      />
-                    </td>
-                    <td>{item.itemName}</td>
-                    <td>${item.price.toFixed(2)}</td>
-                    <td>{item.priceType}</td>
-                    <td>{item.brand}</td>
-                    <td>{item.size}</td>
-                    <td>{item.location}</td>
-                    <td>
-                      <Button click={() => editItemID(item)}>Edit</Button>
-                    </td>
-                    <td>
-                      <Button
-                        click={() => deleteItem(item._id)}
-                        className="bg-red-700 text-white"
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
-                );
-              })}
+              {groceryItems
+                .sort((a, b) => {
+                  return a.itemName.localeCompare(b.itemName);
+                })
+                .map((item) => {
+                  return (
+                    <tr key={item._id}>
+                      <td>
+                        <input
+                          type="checkbox"
+                          onChange={() => handleCheckbox(item._id)}
+                        />
+                      </td>
+                      <td>{item.itemName}</td>
+                      <td>${item.price.toFixed(2)}</td>
+                      <td>{item.priceType}</td>
+                      <td>{item.brand}</td>
+                      <td>{item.size}</td>
+                      <td>{item.location}</td>
+                      <td>
+                        <Button click={() => editItemID(item)}>Edit</Button>
+                      </td>
+                      <td>
+                        <Button
+                          click={() => deleteItem(item._id)}
+                          className="bg-red-700 text-white"
+                        >
+                          Delete
+                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
